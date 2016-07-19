@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    app:cardElevation="6dp">
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:background="?attr/selectableItemBackground"
+        app:alignmentMode="alignBounds"
+        app:columnCount="3"
+        app:columnOrderPreserved="false"
+        app:useDefaultMargins="true">
+
+        <TextView
+            android:id="@+id/textViewTagLabel"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            tools:text="Tag 1" />
+
+        <TextView
+            android:id="@+id/textViewDayTitle"
+            app:layout_column="1"
+            app:layout_columnSpan="2"
+            app:layout_gravity="right"
+            tools:text="16.07.16" />
+
+        <TextView
+            android:id="@+id/textViewGewichtLabel"
+            android:layout_marginTop="8dp"
+            android:text="Gewicht" />
+
+        <TextView
+            android:id="@+id/textViewGewichtValue"
+            app:layout_column="1"
+            app:layout_columnSpan="2"
+            app:layout_gravity="right"
+            tools:text="92,6kg" />
+
+    </android.support.v7.widget.GridLayout>
+
+</android.support.v7.widget.CardView>
