@@ -42,6 +42,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import itservicesam.android.hcg_kur_manager.chart.ChartActivity;
 
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -401,6 +402,15 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                     @Override
                     public void run() {
                         Intent intent = new Intent(MainActivity.this, DataViewerActivity.class);
+                        startActivity(intent);
+                    }
+                }, 300);
+            case R.id.nav_show_data_chart:
+                drawer.closeDrawers();
+                drawer.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(MainActivity.this, ChartActivity.class);
                         startActivity(intent);
                     }
                 }, 300);

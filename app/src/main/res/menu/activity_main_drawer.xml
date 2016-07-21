@@ -10,6 +10,10 @@
             android:id="@+id/nav_show_data"
             android:icon="@drawable/ic_view_list_black_24dp"
             android:title="Daten ansehen" />
+        <item
+            android:id="@+id/nav_show_data_chart"
+            android:icon="@drawable/ic_view_list_black_24dp"
+            android:title="Datengrafik ansehen" />
         <!--<item-->
             <!--android:id="@+id/nav_slideshow"-->
             <!--android:icon="@drawable/ic_menu_slideshow"-->

@@ -37,6 +37,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="itservicesam.android.hcg_kur_manager.DataViewerActivity" />
         </activity>
+        <activity android:name=".chart.ChartActivity"></activity>
     </application>
 
 </manifest>
