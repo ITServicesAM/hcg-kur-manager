@@ -5,36 +5,15 @@
         <item
             android:id="@+id/nav_add_data"
             android:icon="@drawable/ic_create_black_24dp"
-            android:title="Datensatz hinzufügen" />
+            android:title="Neuer Eintrag" />
         <item
             android:id="@+id/nav_show_data"
             android:icon="@drawable/ic_view_list_black_24dp"
-            android:title="Daten ansehen" />
+            android:title="Deine Daten" />
         <item
             android:id="@+id/nav_show_data_chart"
-            android:icon="@drawable/ic_view_list_black_24dp"
-            android:title="Datengrafik ansehen" />
-        <!--<item-->
-            <!--android:id="@+id/nav_slideshow"-->
-            <!--android:icon="@drawable/ic_menu_slideshow"-->
-            <!--android:title="Slideshow" />-->
-        <!--<item-->
-            <!--android:id="@+id/nav_manage"-->
-            <!--android:icon="@drawable/ic_menu_manage"-->
-            <!--android:title="Tools" />-->
+            android:icon="@drawable/ic_chart_black_24dp"
+            android:title="Grafiken" />
     </group>
-
-    <!--<item android:title="Communicate">-->
-        <!--<menu>-->
-            <!--<item-->
-                <!--android:id="@+id/nav_share"-->
-                <!--android:icon="@drawable/ic_menu_share"-->
-                <!--android:title="Share" />-->
-            <!--<item-->
-                <!--android:id="@+id/nav_send"-->
-                <!--android:icon="@drawable/ic_menu_send"-->
-                <!--android:title="Send" />-->
-        <!--</menu>-->
-    <!--</item>-->
 
 </menu>

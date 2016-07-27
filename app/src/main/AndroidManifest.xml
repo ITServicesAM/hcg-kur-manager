@@ -12,6 +12,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DataViewerActivity"
+            android:name=".HistoryActivity"
             android:label="@string/title_activity_data_viewer"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -31,13 +32,17 @@
         <activity
             android:name=".DetailsActivity"
             android:label="@string/title_activity_details"
-            android:parentActivityName=".DataViewerActivity"
+            android:parentActivityName=".HistoryActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".chart.ChartActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="itservicesam.android.hcg_kur_manager.DataViewerActivity" />
+                android:value="itservicesam.android.hcg_kur_manager.MainActivity" />
         </activity>
-        <activity android:name=".chart.ChartActivity"></activity>
     </application>
 
 </manifest>

@@ -23,4 +23,6 @@ public class ExampleInstrumentedTest {
 
         assertEquals("itservicesam.android.hcg_kur_manager", appContext.getPackageName());
     }
+
+
 }

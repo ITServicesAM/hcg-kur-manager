@@ -3,9 +3,15 @@ apply plugin: 'android-apt'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
+    dexOptions {
+        maxProcessCount 2
+        javaMaxHeapSize "2g"
+    }
+
     compileSdkVersion 24
     buildToolsVersion "23.0.3"
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "itservicesam.android.hcg_kur_manager"
         minSdkVersion 21
         targetSdkVersion 24
