@@ -2,26 +2,23 @@ package itservicesam.android.hcg_kur_manager;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.util.TypedValue;
-import android.view.Gravity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -36,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseNavDrawerActivity implements DatePickerDialog.OnDateSetListener {
+public class MainActivity extends BaseNavDrawerActivity implements DatePickerDialog.OnDateSetListener, TextView.OnEditorActionListener {
 
     private DecimalFormat df = new DecimalFormat("#.##");
     private DateFormat sdf = SimpleDateFormat.getDateInstance();
@@ -63,6 +60,9 @@ public class MainActivity extends BaseNavDrawerActivity implements DatePickerDia
     @BindView(R.id.textViewButt)
     EditText buttTextView;
 
+    @BindView(R.id.nest_scrollview)
+    NestedScrollView nestedScrollView;
+
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
@@ -75,6 +75,15 @@ public class MainActivity extends BaseNavDrawerActivity implements DatePickerDia
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+
+        KeyboardUtil keyboardUtil = new KeyboardUtil(this, findViewById(android.R.id.content));
+        //enable it
+        keyboardUtil.enable();
+
+        nestedScrollView.setSmoothScrollingEnabled(true);
+
+        stomachTextView.setOnEditorActionListener(this);
+        chestTextView.setOnEditorActionListener(this);
 
         bodyDataDao = ((App) getApplication()).getDaoSession().getBodyDataDao();
 
@@ -373,4 +382,12 @@ public class MainActivity extends BaseNavDrawerActivity implements DatePickerDia
     }
 
 
+    @Override
+    public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+        Log.i("TEST", "onEditorAction: " + actionId);
+        if (actionId == EditorInfo.IME_ACTION_NEXT) {
+            nestedScrollView.scrollBy(0, 200);
+        }
+        return false;
+    }
 }
