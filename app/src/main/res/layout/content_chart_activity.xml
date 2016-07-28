@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_chart"
     android:layout_width="match_parent"
-    android:clipChildren="false"
     android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:orientation="vertical"
     tools:context="itservicesam.android.hcg_kur_manager.chart.ChartActivity"
     tools:showIn="@layout/chart_activity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/AppTheme.AppBarOverlay"
-        app:layout_collapseMode="pin"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="@+id/activity_chart"
         app:layout_constraintRight_toRightOf="@+id/activity_chart"
         app:layout_constraintTop_toTopOf="@+id/activity_chart"
-        app:layout_scrollFlags="scroll|enterAlways"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/lineChart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:clipChildren="false"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="@+id/viewPager"
+        app:layout_constraintRight_toRightOf="@+id/activity_chart"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="#ffffff"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Subhead"
+        app:tabTextColor="#a6a6a6" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="@+id/activity_chart"
         app:layout_constraintLeft_toLeftOf="@+id/activity_chart"
         app:layout_constraintRight_toRightOf="@+id/activity_chart"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

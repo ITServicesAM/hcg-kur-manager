@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="60dp"
-    android:layout_height="40dp"
-    android:background="@drawable/marker2">
+    android:id="@+id/marker_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/marker2"
+        android:layout_alignBottom="@+id/tvContent"
+        android:layout_alignEnd="@+id/tvContent"
+        android:layout_alignStart="@+id/tvContent"
+        android:layout_alignTop="@+id/tvContent" />
 
     <TextView
         android:id="@+id/tvContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="6dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="6dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="16dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text=""
-        android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#ffffff"
         tools:text="92,1 kg" />
 
 </RelativeLayout>

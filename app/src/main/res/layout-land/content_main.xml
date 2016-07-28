@@ -24,25 +24,27 @@
             android:text="Datum eingeben"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-            tools:layout_constraintLeft_creator="1"
             app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+            tools:layout_constraintLeft_creator="1"
             tools:layout_constraintTop_creator="1" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="Gewicht"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewGewicht"
             app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-            android:layout_marginStart="16dp"
-            tools:layout_constraintLeft_creator="1"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewGewicht" />
+            tools:layout_constraintLeft_creator="1" />
 
         <EditText
             android:id="@+id/textViewGewicht"
-            android:layout_width="120dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
             android:background="?attr/editTextBackground"
             android:gravity="right|center_vertical"
             android:hint="Gewicht eingeben"
@@ -50,65 +52,64 @@
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintLeft_toRightOf="@+id/textViewDayTitle"
-            android:layout_marginStart="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDayTitle"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewDayTitle" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
             android:text="Körpermaße"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-            android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewGewicht"
-            android:layout_marginTop="24dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewGewicht" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="Bauch"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewStomach" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewStomach"
+            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="Linker Oberschenkel"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewLeftThigh" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewLeftThigh"
+            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="Brust"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewChest" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewChest"
+            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="Po"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewButt" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewButt"
+            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout" />
 
         <EditText
             android:id="@+id/textViewStomach"
-            android:layout_width="120dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:background="?attr/editTextBackground"
             android:gravity="right|center_vertical"
             android:hint="Bauchmaße eingeben"
@@ -116,13 +117,13 @@
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintLeft_toLeftOf="@+id/textViewGewicht"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            android:layout_marginTop="24dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <EditText
             android:id="@+id/textViewLeftThigh"
-            android:layout_width="120dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="?attr/editTextBackground"
             android:clickable="true"
             android:gravity="right|center_vertical"
@@ -131,13 +132,13 @@
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintLeft_toLeftOf="@+id/textViewRightThigh"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRightThigh"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewRightThigh" />
 
         <EditText
             android:id="@+id/textViewChest"
-            android:layout_width="120dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="?attr/editTextBackground"
             android:gravity="right|center_vertical"
             android:hint="Brustmaße eingeben"
@@ -145,14 +146,14 @@
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintLeft_toLeftOf="@+id/textViewLeftThigh"
-            tools:layout_constraintLeft_creator="1"
             app:layout_constraintTop_toBottomOf="@+id/textViewLeftThigh"
-            android:layout_marginTop="16dp" />
+            tools:layout_constraintLeft_creator="1" />
 
         <EditText
             android:id="@+id/textViewButt"
-            android:layout_width="120dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="?attr/editTextBackground"
             android:gravity="right|center_vertical"
             android:hint="Pomaße eingeben"
@@ -160,69 +161,69 @@
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintLeft_toLeftOf="@+id/textViewChest"
-            tools:layout_constraintLeft_creator="1"
             app:layout_constraintTop_toBottomOf="@+id/textViewChest"
-            android:layout_marginTop="16dp" />
+            tools:layout_constraintLeft_creator="1" />
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cm"
-            app:layout_constraintLeft_toRightOf="@+id/textViewStomach"
             android:layout_marginStart="8dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewStomach" />
+            android:text="cm"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewStomach"
+            app:layout_constraintLeft_toRightOf="@+id/textViewStomach" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cm"
-            app:layout_constraintLeft_toRightOf="@+id/textViewLeftThigh"
             android:layout_marginStart="8dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewLeftThigh" />
+            android:text="cm"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewLeftThigh"
+            app:layout_constraintLeft_toRightOf="@+id/textViewLeftThigh" />
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cm"
-            app:layout_constraintLeft_toRightOf="@+id/textViewChest"
             android:layout_marginStart="8dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewChest" />
+            android:text="cm"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewChest"
+            app:layout_constraintLeft_toRightOf="@+id/textViewChest" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cm"
-            app:layout_constraintLeft_toRightOf="@+id/textViewButt"
             android:layout_marginStart="8dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewButt" />
+            android:text="cm"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewButt"
+            app:layout_constraintLeft_toRightOf="@+id/textViewButt" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="kg"
-            app:layout_constraintLeft_toRightOf="@+id/textViewGewicht"
             android:layout_marginStart="8dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewGewicht" />
+            android:text="kg"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewGewicht"
+            app:layout_constraintLeft_toRightOf="@+id/textViewGewicht" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:text="Rechter Oberschenkel"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewRightThigh" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewRightThigh"
+            app:layout_constraintLeft_toLeftOf="@+id/constraintLayout" />
 
         <EditText
             android:id="@+id/textViewRightThigh"
-            android:layout_width="120dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="?attr/editTextBackground"
             android:gravity="right|center_vertical"
             android:hint="Rechte Oberschenkelmaße eingeben"
@@ -230,17 +231,16 @@
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             app:layout_constraintLeft_toLeftOf="@+id/textViewStomach"
-            app:layout_constraintTop_toBottomOf="@+id/textViewStomach"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewStomach" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cm"
-            app:layout_constraintLeft_toRightOf="@+id/textViewRightThigh"
             android:layout_marginStart="8dp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewRightThigh" />
+            android:text="cm"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewRightThigh"
+            app:layout_constraintLeft_toRightOf="@+id/textViewRightThigh" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.v4.widget.NestedScrollView>

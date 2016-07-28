@@ -3,6 +3,7 @@ package itservicesam.android.hcg_kur_manager;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -33,7 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseNavDrawerActivity implements DatePickerDialog.OnDateSetListener, TextView.OnEditorActionListener {
+public class MainActivity extends BaseNavDrawerActivity implements DatePickerDialog.OnDateSetListener, TextView.OnEditorActionListener, View.OnFocusChangeListener {
 
     private DecimalFormat df = new DecimalFormat("#.##");
     private DateFormat sdf = SimpleDateFormat.getDateInstance();
@@ -69,6 +70,9 @@ public class MainActivity extends BaseNavDrawerActivity implements DatePickerDia
     @BindView(R.id.coordinatorLayoutMain)
     CoordinatorLayout coordinatorLayoutMain;
 
+    @BindView(R.id.app_bar)
+    AppBarLayout appBarLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,10 +84,14 @@ public class MainActivity extends BaseNavDrawerActivity implements DatePickerDia
         //enable it
         keyboardUtil.enable();
 
-        nestedScrollView.setSmoothScrollingEnabled(true);
-
-        stomachTextView.setOnEditorActionListener(this);
-        chestTextView.setOnEditorActionListener(this);
+//        nestedScrollView.setSmoothScrollingEnabled(true);
+//
+        weightTextView.setOnFocusChangeListener(this);
+        stomachTextView.setOnFocusChangeListener(this);
+        leftThighTextView.setOnFocusChangeListener(this);
+        rightThighTextView.setOnFocusChangeListener(this);
+        chestTextView.setOnFocusChangeListener(this);
+        buttTextView.setOnFocusChangeListener(this);
 
         bodyDataDao = ((App) getApplication()).getDaoSession().getBodyDataDao();
 
@@ -200,130 +208,6 @@ public class MainActivity extends BaseNavDrawerActivity implements DatePickerDia
         datePickerDialog.show();
     }
 
-//    @OnClick(R.id.textViewGewicht)
-//    void enterDimensionsWheight() {
-//        showDialogForInput(weightTextView, 500, 1100, 650, 10.0, "Gewicht in kg auswählen");
-//    }
-//
-//    @OnClick(R.id.textViewStomach)
-//    void enterDimensionsStomake() {
-//        showDialogForInput(stomachTextView, 50, 120, 70, "Bauchumfang in cm auswählen");
-//    }
-//
-//    @OnClick(R.id.textViewLeftThigh)
-//    void enterDimensionsThigh() {
-//        showDialogForInput(leftThighTextView, 40, 120, 70, "Oberschenkelumfang in cm auswählen");
-//    }
-//
-//    @OnClick(R.id.textViewRightThigh)
-//    void enterDimensionsRightThigh() {
-//        showDialogForInput(rightThighTextView, 40, 120, 70, "Oberschenkelumfang in cm auswählen");
-//    }
-//
-//
-//    @OnClick(R.id.textViewChest)
-//    void enterDimensionsChest() {
-//        showDialogForInput(chestTextView, 70, 120, 80, "Brustumfang in cm auswählen");
-//    }
-//
-//    @OnClick(R.id.textViewButt)
-//    void enterDimensionsButt() {
-//        showDialogForInput(buttTextView, 60, 150, 90, "Poumfang in cm auswählen");
-//    }
-//
-//    private void showDialogForInput(final TextView targetForFinalValue, int min, int max,
-//                                    int currentValue, String title) {
-//        showDialogForInput(targetForFinalValue, min, max, currentValue, 1.0, title);
-//    }
-//
-//    private void showDialogForInput(final TextView targetForFinalValue, int min, int max,
-//                                    int currentValue, final double multiplicator, String title) {
-//        CharSequence currentValueString = targetForFinalValue.getText();
-//        if (!TextUtils.isEmpty(targetForFinalValue.getText())) {
-//            try {
-//                currentValue = multiplicator == 1.0 ? Integer.valueOf(currentValueString.toString()) :
-//                        (int) multiplicator * Integer.valueOf(currentValueString.toString());
-//            } catch (NumberFormatException e) {
-//                currentValue = multiplicator == 1.0 ? Integer.valueOf(currentValueString.toString()) :
-//                        (int) (multiplicator * Double.parseDouble(currentValueString.toString().replace(",", ".")));
-//            }
-//        }
-//        final AlertDialog.Builder popDialog = new AlertDialog.Builder(this);
-//        final DiscreteSeekBar seek = new DiscreteSeekBar(this);
-//        seek.setMin(min);
-//        seek.setMax(max);
-//        seek.setProgress(currentValue);
-//        seek.setNumericTransformer(new DiscreteSeekBar.NumericTransformer() {
-//            @Override
-//            public int transform(int value) {
-//                return value / (int) multiplicator;
-//            }
-//
-//            @Override
-//            public String transformToString(int value) {
-//                return df.format(value / multiplicator);
-//            }
-//
-//            @Override
-//            public boolean useStringTransform() {
-//                return true;
-//            }
-//        });
-//
-//        final TextView textView = new TextView(this);
-//        textView.setText(multiplicator == 1.0 ? String.valueOf(currentValue) : String.valueOf(currentValue / multiplicator));
-//        LinearLayout linearLayout = new LinearLayout(this);
-//        linearLayout.setOrientation(LinearLayout.VERTICAL);
-//        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//        //get resources
-//        Resources r = getResources();
-//        float pxMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, r.getDisplayMetrics());
-//        lp.setMargins(0, Math.round(pxMargin), 0, Math.round(pxMargin));
-//        lp.gravity = Gravity.CENTER_HORIZONTAL;
-//        textView.setLayoutParams(lp);
-//        textView.setGravity(Gravity.CENTER_HORIZONTAL);
-//        linearLayout.addView(textView);
-//        linearLayout.addView(seek);
-//
-//        seek.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
-//            @Override
-//            public void onProgressChanged(DiscreteSeekBar seekBar, int progress, boolean fromUser) {
-//                textView.setText(df.format(progress / multiplicator));
-////                progress = (progress / stepSize) * 10;
-////                seek.setProgress(progress);
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(DiscreteSeekBar seekBar) {
-//
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(DiscreteSeekBar seekBar) {
-//
-//            }
-//        });
-//
-//        popDialog.setTitle(title);
-//        popDialog.setView(linearLayout);
-//
-//        popDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                targetForFinalValue.setText(textView.getText());
-//                dialogInterface.cancel();
-//            }
-//        });
-//        popDialog.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                targetForFinalValue.setText("");
-//            }
-//        });
-//
-//        popDialog.show();
-//    }
-
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
         setDate(year, month, day);
@@ -370,10 +254,12 @@ public class MainActivity extends BaseNavDrawerActivity implements DatePickerDia
             //Testdaten hinzufügen
             List<BodyData> testDaten = new ArrayList<>(3);
             testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("15072016"), 92.7, 103, 66, 66, 100, 99));
-            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("16072016"), 92.2, 103, 66, 66, 100, 99));
-            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("17072016"), 91.5, 103, 66, 66, 100, 99));
-            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("18072016"), 90.1, 103, 66, 66, 100, 99));
-            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("19072016"), 88.8, 97, 63, 63, 98, 95));
+            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("16072016"), 92.2, -1, -1, -1, -1, -1));
+            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("17072016"), 91.8, -1, -1, -1, -1, -1));
+            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("18072016"), 91.1, -1, -1, -1, -1, -1));
+            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("19072016"), 91.9, -1, -1, -1, -1, -1));
+            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("20072016"), 90.5, -1, -1, -1, -1, -1));
+            testDaten.add(new BodyData(null, Utils.getDateFromDbDateString("21072016"), 88.9, 97, 63, 63, 96, 95));
 
             bodyDataDao.insertInTx(testDaten);
             return true;
@@ -389,5 +275,16 @@ public class MainActivity extends BaseNavDrawerActivity implements DatePickerDia
             nestedScrollView.scrollBy(0, 200);
         }
         return false;
+    }
+
+    @Override
+    public void onFocusChange(View view, boolean hasFocus) {
+        if (hasFocus) {
+            CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
+            AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
+            if (behavior != null) {
+                behavior.onNestedFling(coordinatorLayoutMain, appBarLayout, null, 0, view.getBottom(), true);
+            }
+        }
     }
 }

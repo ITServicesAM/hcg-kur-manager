@@ -17,6 +17,10 @@ import itservicesam.android.hcg_kur_manager.R;
 
 public class MyMarkerView extends MarkerView {
 
+    static final int TYP_CM = 0;
+    static final int TYP_KG = 1;
+    private int einheitsTyp;
+
     @BindView(R.id.tvContent)
     TextView tvContent;
 
@@ -26,15 +30,24 @@ public class MyMarkerView extends MarkerView {
      * @param context
      * @param layoutResource the layout resource to use for the MarkerView
      */
-    public MyMarkerView(Context context, int layoutResource) {
+    public MyMarkerView(Context context, int layoutResource, int einheitsTyp) {
         super(context, layoutResource);
-
+        this.einheitsTyp = einheitsTyp;
         ButterKnife.bind(this);
     }
 
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
-        tvContent.setText(e.getY()+"kg");
+        String prefix = "";
+        switch (einheitsTyp) {
+            case TYP_CM:
+                prefix = "cm";
+                break;
+            case TYP_KG:
+                prefix = "kg";
+                break;
+        }
+        tvContent.setText(e.getY() + prefix);
     }
 
     @Override
@@ -46,6 +59,6 @@ public class MyMarkerView extends MarkerView {
     @Override
     public int getYOffset(float ypos) {
         // this will cause the marker-view to be above the selected value
-        return -getHeight()-8;
+        return -getHeight() - 8;
     }
 }
